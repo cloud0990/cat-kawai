@@ -37,5 +37,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://cloud0990.github.io/catKawai"
+  "homepage": "https://cloud0990.github.io/catKawai",
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  }
 }
