@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/catKawai/static/css/main.1971adfc.css",
-    "main.js": "/catKawai/static/js/main.fd686a75.js",
-    "static/media/right_meme.png": "/catKawai/static/media/right_meme.197073378e9daf311263.png",
-    "static/media/left_meme.png": "/catKawai/static/media/left_meme.0f0fde6ab0ba53f182c1.png",
-    "index.html": "/catKawai/index.html",
-    "main.1971adfc.css.map": "/catKawai/static/css/main.1971adfc.css.map",
-    "main.fd686a75.js.map": "/catKawai/static/js/main.fd686a75.js.map"
+    "main.css": "/cat-kawai/static/css/main.1971adfc.css",
+    "main.js": "/cat-kawai/static/js/main.90c3bfaa.js",
+    "static/media/right_meme.png": "/cat-kawai/static/media/right_meme.197073378e9daf311263.png",
+    "static/media/left_meme.png": "/cat-kawai/static/media/left_meme.0f0fde6ab0ba53f182c1.png",
+    "index.html": "/cat-kawai/index.html",
+    "main.1971adfc.css.map": "/cat-kawai/static/css/main.1971adfc.css.map",
+    "main.90c3bfaa.js.map": "/cat-kawai/static/js/main.90c3bfaa.js.map"
   },
   "entrypoints": [
     "static/css/main.1971adfc.css",
-    "static/js/main.fd686a75.js"
+    "static/js/main.90c3bfaa.js"
   ]
 }
