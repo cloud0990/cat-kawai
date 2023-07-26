@@ -18,9 +18,7 @@ export default function App() {
 
     const copyText = async (data) => {
         try {
-            // await navigator.clipboard.writeText(data);
-            await navigator.clipboard;
-
+            await navigator.clipboard.writeText(data);
         } catch (error) {
             console.log(error)
         }
