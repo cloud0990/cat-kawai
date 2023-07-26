@@ -5,26 +5,26 @@ import rightMeme from 'img/right_meme.png';
 import styles from 'styles/App.module.css';
 
 import Firecracker from "components/confetti/Firecracker";
-import Stars from "./components/confetti/Stars";
+import Stars from "components/confetti/Stars";
 
 export default function App() {
 
-    const [left, setLeft] = useState(true);
+    const [imgLeft, setImgLeft] = useState(true);
     const [stroking, setStroking] = useState(0); // 쓰다듬기 횟수
 
     const inMouse = () => {
-        setLeft(false);
+        setImgLeft(false);
         setStroking(stroking + 1);
     }
 
     const outMouse = () => {
-        setLeft(true);
+        setImgLeft(true);
     }
 
-    const onShare = () => {
+    const shareBtn = () => {
         const shareObj = {
           title: "고양이 귀여워",
-          text: "귀여운 고양이에 마우스를 올리거나 터치해보세요.",
+          text: "귀여운 고양이에 마우스를 올려보세요.",
           url: window.location.href
         };
 
@@ -49,16 +49,13 @@ export default function App() {
             <div>
                 <img
                     alt={"고양이"}
-
                     src={
-                        `${left ? leftMeme : rightMeme}`
+                        `${imgLeft ? leftMeme : rightMeme}`
                     }
-
-                    onMouseEnter={inMouse}
-                    onMouseOut={outMouse}
-
-                    onTouchStart={inMouse}
-                    onTouchEnd={outMouse}
+                    onMouseEnter={ inMouse }
+                    onTouchStart={ inMouse }
+                    onMouseOut={ outMouse }
+                    onTouchEnd={ outMouse }
                 />
             </div>
             <div className={styles.footer}>
@@ -67,7 +64,7 @@ export default function App() {
                 }}>
                     {stroking}
                 </h2>
-                <button onClick={ onShare } type="button" className="btn btn-primary">
+                <button onClick={ shareBtn } type="button" className="btn btn-primary">
                     <i className="fas fa-up-right-from-square"></i>
                 </button>
             </div>
