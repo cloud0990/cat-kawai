@@ -4,24 +4,21 @@ import leftMeme from 'img/left_meme.png';
 import rightMeme from 'img/right_meme.png';
 import styles from 'styles/App.module.css';
 
+import Firecracker from "components/confetti/Firecracker";
+import Stars from "./components/confetti/Stars";
+
 export default function App() {
 
     const [left, setLeft] = useState(true);
+    const [stroking, setStroking] = useState(0); // 쓰다듬기 횟수
 
     const inMouse = () => {
         setLeft(false);
+        setStroking(stroking + 1);
     }
 
     const outMouse = () => {
         setLeft(true);
-    }
-
-    const copyText = async (data) => {
-        try {
-            await navigator.clipboard.writeText(data);
-        } catch (error) {
-            console.log(error)
-        }
     }
 
     const onShare = () => {
@@ -38,31 +35,42 @@ export default function App() {
                     alert("공유 성공");
                 })
                 .catch((error) => {
-                    alert("공유 실패");
+                    // alert("공유 실패");
                 });
         }else {
             alert("페이지 공유 지원 불가");
         }
-
     }
 
     return (
         <div>
-            <img
-                alt={"고양이"}
+            { ( stroking === 0 ) ? <Stars /> : null }
+            { ( stroking % 10 === 0 && stroking !== 0 ) ? <Firecracker /> : null }
+            <div>
+                <img
+                    alt={"고양이"}
 
-                src={
-                    `${left ? leftMeme : rightMeme}`
-                }
+                    src={
+                        `${left ? leftMeme : rightMeme}`
+                    }
 
-                onMouseEnter={inMouse}
-                onMouseOut={outMouse}
+                    onMouseEnter={inMouse}
+                    onMouseOut={outMouse}
 
-                onTouchStart={inMouse}
-                onTouchEnd={outMouse}
-            />
-            {/*<button onClick={() => copyText(`${window.location.href}`)}>공유하기</button>*/}
-            <button onClick={onShare}>공유하기</button>
+                    onTouchStart={inMouse}
+                    onTouchEnd={outMouse}
+                />
+            </div>
+            <div className={styles.footer}>
+                <h2 style={{
+                    fontWeight: `${ ( stroking % 10 === 0 && stroking !== 0) ? 700 : 500 }`
+                }}>
+                    {stroking}
+                </h2>
+                <button onClick={ onShare } type="button" className="btn btn-primary">
+                    <i className="fas fa-up-right-from-square"></i>
+                </button>
+            </div>
         </div>
     );
 };
